@@ -44,6 +44,9 @@ def _htcondorBatchSystemFactory():
     from toil.batchSystems.htcondor import HTCondorBatchSystem
     return HTCondorBatchSystem
 
+def _chronosBatchSystemFactory():
+    from toil.batchSystems.chronos import ChronosBatchSystem
+    return ChronosBatchSystem
 
 _DEFAULT_REGISTRY = {
     'parasol'        : _parasolBatchSystemFactory,
@@ -60,7 +63,8 @@ _DEFAULT_REGISTRY = {
     'torque'         : _torqueBatchSystemFactory,
     'Torque'         : _torqueBatchSystemFactory,
     'htcondor'       : _htcondorBatchSystemFactory,
-    'HTCondor'       : _htcondorBatchSystemFactory
+    'HTCondor'       : _htcondorBatchSystemFactory,
+    'chronos'        : _chronosBatchSystemFactory
     }
 
 _UNIQUE_NAME = {
@@ -71,7 +75,8 @@ _UNIQUE_NAME = {
     'Mesos',
     'Slurm',
     'Torque',
-    'HTCondor'
+    'HTCondor',
+    'chronos'
         }
 
 _batchSystemRegistry = _DEFAULT_REGISTRY.copy()

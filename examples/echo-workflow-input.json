@@ -1,0 +1,8 @@
+{
+    "archive": "archive.tar",
+    "touch_files": [
+        "file0", "file1", "file2", "file3", "file4"
+    ],
+    "echo_message": "hello world",
+    "echo_output_location": "echoout"
+}

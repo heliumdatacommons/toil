@@ -169,7 +169,7 @@ class ChronosBatchSystem(BatchSystemLocalSupport):
         disk = jobNode.disk / 2**20 # B -> MiB
         # set default here due to --default options not working when subset of reqs specified in workflow
         if not disk or disk < 20 * 2**30:
-            disk = 20 * 2**30
+            disk = 20 * 2**10 # MiB -> GiB
 
         logger.info("Requesting resources: mem={}, cpus={}, disk={}".format(mem, cpus, disk))
         # if a job with this name already exists, it will be overwritten in chronos.

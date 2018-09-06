@@ -1,0 +1,22 @@
+archive: test.tar
+files:
+  - class: File
+    path: test0
+  - class: File
+    path: test1
+  - class: File
+    path: test2
+  - class: File
+    path: test3
+  - class: File
+    path: test4
+touch_files:
+  - newfile0
+  - newfile1
+  - newfile2
+  - newfile3
+  - newfile4
+new_archive: testrenamed.tar
+echo_message: "this is an echo message"
+echo_output_location: echomessage
+

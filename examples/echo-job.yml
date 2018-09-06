@@ -1,0 +1,3 @@
+message: Hello world!
+output_location: echo.stdout
+

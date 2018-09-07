@@ -365,6 +365,7 @@ class FileJobStore(AbstractJobStore):
             # ... we can hard-link the file, ...
             if symlink:
                 try:
+                    logger.info("symlinking file [{}] to [{}]".format(jobStoreFilePath, localFilePath))
                     os.symlink(jobStoreFilePath, localFilePath)
                 except OSError as e:
                     if e.errno == errno.EEXIST:
@@ -377,6 +378,7 @@ class FileJobStore(AbstractJobStore):
                         raise
             else:
                 try:
+                    logger.info("hardlinking file [{}] to [{}]".format(jobStoreFilePath, localFilePath))
                     os.link(jobStoreFilePath, localFilePath)
                 except OSError as e:
                     if e.errno == errno.EEXIST:
@@ -389,6 +391,7 @@ class FileJobStore(AbstractJobStore):
                         raise
         else:
             # ... otherwise we have to copy it.
+            logger.info("copying file [{}] to [{}]".format(jobStoreFilePath, localFilePath))
             shutil.copyfile(jobStoreFilePath, localFilePath)
 
     def deleteFile(self, jobStoreFileID):

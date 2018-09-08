@@ -213,6 +213,10 @@ class ChronosBatchSystem(BatchSystemLocalSupport):
                         " ".join(jobNode.command.split(" ")[1:])
                     ) # args after original _toil_worker
             ),
+            "container": {
+                "network": "USER",
+                "networkName": "dcos",
+            },
             "constraints": [],
             "owner": "",
             "disabled": False,

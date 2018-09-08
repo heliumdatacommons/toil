@@ -156,10 +156,10 @@ class ChronosBatchSystem(BatchSystemLocalSupport):
     """
     def issueBatchJob(self, jobNode):
         logger.info("jobNode: " + str(vars(jobNode)))
-        localID = self.handleLocalJob(jobNode)
-        if localID:
-            logger.info('issued job to local executor: ' + str(localID))
-            return localID
+        #localID = self.handleLocalJob(jobNode)
+        #if localID:
+        #    logger.info('issued job to local executor: ' + str(localID))
+        #    return localID
         # store jobStoreID as a way to reference this batch of jobs
         self.jobStoreID = jobNode.jobStoreID.replace("/", "-")
         logger.debug("issuing batch job with unique ID: {}".format(self.jobStoreID))

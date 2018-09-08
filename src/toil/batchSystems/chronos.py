@@ -207,7 +207,7 @@ class ChronosBatchSystem(BatchSystemLocalSupport):
             "arguments": [],
             "command": (
                 "sudo docker pull {};".format(self.toil_worker_image)
-                + "sudo docker run --rm --privileged {} -v /tmp/docker.sock:/var/run/docker.sock:rw -v /toil-intermediate:/toil-intermediate {} _toil_worker '{}'".format(
+                + "sudo docker run --rm --privileged {} -v /var/run/docker.sock:/var/run/docker.sock:rw -v /toil-intermediate:/toil-intermediate {} _toil_worker '{}'".format(
                         env_str, # aggregated environment vars
                         self.toil_worker_image,
                         " ".join(jobNode.command.split(" ")[1:])
